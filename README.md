@@ -1,8 +1,10 @@
-#Schegen
+# Schegen
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [How to use Schegen?](#how-to-use-hchegen?)
+* [How to use Schegen?](#how-to-use-schegen?)
+* [How it works?](#how-it-works?)
+* [Setup](#setup)
 
 ## General info
 This app is a school timetable generator. 
@@ -27,9 +29,14 @@ Points are allocated based on the empty slots between lessons.
 The timetable with the fewest points is selected.
 The more precise operation of the generator is described in the file generator.py(ScheGen/schegen/genApp/generator.py).
 
-##Setup
+## Setup
+* cd ScheGen-main
+* python -m venv virt
+* source virt/scripts/activate
+* pip install -r requirements.txt
+* cd schegen
+* python mange.py runserver
 
-##Account with data
 Data entry takes a long time.
 Below is the login and password for the account with the data.
 
