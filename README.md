@@ -2,8 +2,8 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [How to use Schegen?](#how-to-use-schegen?)
-* [How it works?](#how-it-works?)
+* [How to use Schegen?](#how-to-use-schegen)
+* [How it works?](#how-it-works)
 * [Setup](#setup)
 
 ## General info
