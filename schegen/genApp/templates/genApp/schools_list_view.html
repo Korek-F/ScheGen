@@ -1,0 +1,10 @@
+{% extends "genApp/base.html" %}
+
+{%block content%}
+{%for school in object_list %}
+    <div>
+        {{school.name}}
+        <a class="btn btn-primary" href="{% url 'school_detail_view' school.id%}">Details</a>
+    </div>
+{%endfor%}
+{% endblock %}

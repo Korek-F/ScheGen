@@ -1,0 +1,43 @@
+{% extends "genApp/base.html" %}
+
+{%block content%}
+<h1>{{object.name}}</h1>
+<h2>Add Lessons</h2>
+    <form action="{% url 'add_lesson' object.id%}" method="POST"> 
+        {% csrf_token%}
+        <lable>Teacher: </lable>
+        <select name="teacher" id="teacher">
+            {% for teacher in object.school.teachermodel_set.all%} 
+                <option value="{{teacher.id}}">
+                    {{teacher}}
+                </option>
+            {% endfor %}
+        </select>
+        <label>Subject</label>
+        <input type="text" id="subject" name="subject" />
+        <input type="submit" value="Add" />
+    </form>
+<h2>Lessons</h2>
+<div class="row">
+    {%for lesson in object.lessonmodel_set.all%}
+        <div class="col-md-1 col-sm-6">
+            {{lesson}}
+            <form method="POST" action="{% url 'lesson_delete_view' lesson.id%}">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="Delete" />
+            </form> 
+            <br />
+        </div>
+    {%endfor%}
+</div>
+
+
+
+<h2>Delete</h2>
+<form method="POST" action="{% url 'class_delete_view' object.id%}">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete" />
+</form>
+
+{% endblock %}
+

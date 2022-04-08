@@ -1,0 +1,114 @@
+{% extends "genApp/base.html" %}
+{% load static %}
+{%block content%}
+<div id="main_box">
+    <div>
+        <select id="class_select">
+            
+        </select>
+
+        <select id="teacher_select">
+            
+        </select>
+    </div>
+    <h1 id="class_name" >:)</h1>
+    <table class="table table-striped"">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Monday</th>
+            <th scope="col">Tuesday</th>
+            <th scope="col">Wednesday</th>
+            <th scope="col">Thursday</th>
+            <th scope="col">Friday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">0</th>
+            <td id="t10"></td>
+            <td id="t20"></td>
+            <td id="t30"></td>
+            <td id="t40"></td>
+            <td id="t50"></td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td id="t11"></td>
+            <td id="t21"></td>
+            <td id="t31"></td>
+            <td id="t41"></td>
+            <td id="t51"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td id="t12"></td>
+            <td id="t22"></td>
+            <td id="t32"></td>
+            <td id="t42"></td>
+            <td id="t52"></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td id="t13"></td>
+            <td id="t23"></td>
+            <td id="t33"></td>
+            <td id="t43"></td>
+            <td id="t53"></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td id="t14"></td>
+            <td id="t24"></td>
+            <td id="t34"></td>
+            <td id="t44"></td>
+            <td id="t54"></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td id="t15"></td>
+            <td id="t25"></td>
+            <td id="t35"></td>
+            <td id="t45"></td>
+            <td id="t55"></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td id="t16"></td>
+            <td id="t26"></td>
+            <td id="t36"></td>
+            <td id="t46"></td>
+            <td id="t56"></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td id="t17"></td>
+            <td id="t27"></td>
+            <td id="t37"></td>
+            <td id="t47"></td>
+            <td id="t57"></td>
+          </tr>
+          <tr>
+            <th scope="row">8</th>
+            <td id="t18"></td>
+            <td id="t28"></td>
+            <td id="t38"></td>
+            <td id="t48"></td>
+            <td id="t58"></td>
+          </tr>
+          <tr>
+            <th scope="row">9</th>
+            <td id="t19"></td>
+            <td id="t29"></td>
+            <td id="t39"></td>
+            <td id="t49"></td>
+            <td id="t59"></td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+<script> var schedule_data = JSON.parse({{schedule | safe }}) </script>
+<script src="{% static 'schegen/generator.js' %}"></script> 
+
+{% endblock %}

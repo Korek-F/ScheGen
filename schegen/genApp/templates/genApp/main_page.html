@@ -1,0 +1,16 @@
+{% extends "genApp/base.html" %}
+
+{%block content%}
+{% if user.is_authenticated%}
+<a class="btn btn-primary" href="{% url 'school_create_view'%}">Create new school</a>
+{%endif%}
+<p>
+    How to use this app? <br />
+    1. Create School <br />
+    2. Add teachers <br />
+    3. Add classes <br />
+    4. Add available hours to teachers <br />
+    5. Add lessons to classes <br />
+    6. Generate new schedule <br />
+</p> 
+{% endblock %}

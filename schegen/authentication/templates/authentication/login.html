@@ -1,0 +1,15 @@
+
+{% extends "authentication/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Login</h1>
+<form action="{% url 'login' %}" method="post" class="form-control bg-dark text-light" >
+ {% csrf_token %}
+
+ {{form|crispy}}
+
+ <input type="hidden" name="next" value="{% url 'main'%}">
+<button type="submit" class="btn btn-primary">Login</button>
+<a href="{% url 'main' %}" class="btn btn-secondary">Go back</a>
+</form>
+{% endblock %}

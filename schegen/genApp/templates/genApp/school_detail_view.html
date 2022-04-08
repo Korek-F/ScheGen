@@ -1,0 +1,54 @@
+{% extends "genApp/base.html" %}
+
+{%block content%}
+<div class="p-2"> 
+<h1>{{object.name}}</h1>
+<a class="btn btn-primary" href="{% url 'open_school_schedule' object.id %}">Schedule</a>
+<a class="btn btn-primary" href="{% url 'school_schedule_generator' object.id %}">Generate Schedule</a>
+
+<h2>Classes</h2>
+<div class="row">
+    {%for class in object.classmodel_set.all%}
+        <div class="col-md-1 ">
+        {{class}}<a class="btn btn-primary" href="{% url 'class_detail_view' class.id %}">Details</a><br />
+        </div>
+    {%endfor%}
+</div>
+
+<h3>Add class</h3>
+<form action="{%url 'add_class' object.id%}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="new_class_name" id="new_class_name" />
+    <input type="submit" value="Add" />
+</form>
+
+
+
+<h2>Teachers</h2>
+<div class="row">
+    {%for teacher in object.teachermodel_set.all%}
+        <div class="col-md-1">
+            {{teacher.name}}
+            <a class="btn btn-primary" href="{% url 'teacher_detail_view' teacher.id %}">Details</a><br />
+            <br/>
+        </div>
+    {%endfor%}
+</div>
+
+<h3>Add Teacher</h3>
+<form action="{%url 'add_teacher' object.id%}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="new_teacher_name" id="new_teacher_name" />
+    <input type="submit" value="Add" />
+</form>
+
+
+<h2>Delete School</h2>
+<form method="POST" action="{% url 'school_delete_view' object.id%}">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete" />
+</form>
+</div>
+
+{% endblock %}
+

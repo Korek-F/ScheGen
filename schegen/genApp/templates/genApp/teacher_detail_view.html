@@ -1,0 +1,36 @@
+{% extends "genApp/base.html" %}
+
+{%block content%}
+<h1>{{object.name}}</h1>
+<br />
+<form action="{% url 'change_teacher_available_hours' object.id %}" method="POST"> 
+    {% csrf_token %}
+<table> 
+{% for hour in hours%}
+        {%if hour.time == 10 or hour.time == 20 or hour.time == 30 or hour.time == 40 or hour.time == 50  %}
+            <tr> <td>{% cycle "Monday" "Tuesday" "Wednesday" "Thursday" "Friday"%}</td>
+        {% endif %}
+                <td> 
+                    <label>{{hour.time}}</label>
+                    <input type="checkbox" name="checks" value={{hour.time}} 
+                        {%if hour in object.avaiable_hours.all %}
+                        checked 
+                        {%endif%}
+                    />
+                </td>
+        {%if hour.time == 19 or hour.time == 29 or hour.time == 39 or hour.time == 49  or hour.time == 59 %}
+            </tr> 
+        {% endif %}
+    
+{% endfor %}
+
+</table>
+<input type="submit" class="btn btn-primary" value="Change" />
+</form> <br />
+
+<form method="POST" action="{% url 'teacher_delete_view' object.id%}">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger" value="Delete Teacher" />
+</form> 
+{% endblock %}
+
